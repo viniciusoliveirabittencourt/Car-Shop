@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import sinon from 'sinon';
-import CarModel from '../../../models/Car';
+import CarModel from '../../../models/CarMod';
 import { Model } from 'mongoose';
 import { carMock, carMockWhithId, carUpdateMock, carupdateMockWhithId } from '../../mocks/carMock';
 

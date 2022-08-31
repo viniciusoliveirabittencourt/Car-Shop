@@ -2,8 +2,8 @@ import { expect } from "chai";
 import * as sinon from 'sinon';
 import { ZodError } from 'zod';
 import { ErrorTypes } from "../../../errors/catalog";
-import CarModel from '../../../models/Car';
-import CarService from "../../../services/Car";
+import CarModel from '../../../models/CarMod';
+import CarService from "../../../services/CarSer";
 import { carMock, carMockWhithId } from '../../mocks/carMock';
 
 describe('car Service' , () => {
