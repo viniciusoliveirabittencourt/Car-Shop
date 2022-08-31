@@ -1,4 +1,3 @@
-/*
 import { expect, assert } from 'chai';
 import * as sinon from 'sinon';
 import { Request, Response } from 'express';
@@ -69,7 +68,7 @@ describe('car Controller', () => {
       expect((res.json as sinon.SinonStub).calledWith(carMockWhithId)).to.be.true;
     });
   });
-
+  /*
   describe('Delete a car', () => {
     it('Success', async () => {
       req.params = { id: carMockWhithId._id};
@@ -79,5 +78,6 @@ describe('car Controller', () => {
       expect((res.end as sinon.SinonStub).calledWith()).to.be.true;
     });
   });
+
+  */
 });
-*/
