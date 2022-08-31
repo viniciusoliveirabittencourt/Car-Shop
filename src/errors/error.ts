@@ -1,7 +1,7 @@
 /* Conteudo pego do course */
 import { ErrorRequestHandler } from 'express';
 import { ZodError } from 'zod';
-import { ErrorTypes, errorCatalog } from '../errors/catalog';
+import { ErrorTypes, errorCatalog } from './catalog';
 
 const errorHandler: ErrorRequestHandler = (
   err: Error | ZodError,
@@ -12,7 +12,7 @@ const errorHandler: ErrorRequestHandler = (
   // o instanceof verifica se esse é erro é uma instância do ZodError
   if (err instanceof ZodError) {
     // se for nós sabemos que é um erro de validação e podemos usar o status 400 e a própria mensagem do zod para retornar a response
-    return res.status(400).json({ message: err.issues });
+    return res.status(400).json({ error: err.issues });
   }
   // aqui vamos fazer o cast da mensagem de erro para uma chave do Enum ErrorTypes
   // nato: usar comentário para explicar o keyof typeof
@@ -23,8 +23,8 @@ const errorHandler: ErrorRequestHandler = (
   if (mappedError) {
     // dito que o erro está mapeado no nosso catálogo
     // "mappedError" tem valores necessário para responder a requisição
-    const { httpStatus, message } = mappedError;
-    return res.status(httpStatus).json({ message });
+    const { httpStatus, error } = mappedError;
+    return res.status(httpStatus).json({ error });
   }
   console.error(err);
   return res.status(500).json({ message: 'internal error' });

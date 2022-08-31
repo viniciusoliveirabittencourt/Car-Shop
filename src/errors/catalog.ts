@@ -1,12 +1,12 @@
 /* Contéudo pego do course */
 
 export enum ErrorTypes {
- EntityNotFound = 'EntityNotFound',
- InvalidMongoId = 'InvalidMongoId',
+  EntityNotFound = 'EntityNotFound',
+  InvalidMongoId = 'InvalidMongoId',
 }
 
 type ErrorResponseObject = {
-  message: string;
+  error: string;
   httpStatus: number
 };
 
@@ -17,11 +17,11 @@ export type ErrorCatalog = {
 
 export const errorCatalog: ErrorCatalog = {
   EntityNotFound: {
-    message: 'Entity not found',
+    error: 'Object not found',
     httpStatus: 404,
   },
   InvalidMongoId: {
-    message: 'Id must be a 24 characters hexadecimal',
+    error: 'Id must have 24 hexadecimal characters',
     httpStatus: 400,
   },
 };
